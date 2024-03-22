@@ -19,8 +19,6 @@ choices.forEach((choice) => {
 const playgame = (userchoice) => {
     // generating compchoice
     const choiceofcomp = compchoice()
-    console.log("compchoice =", choiceofcomp)
-
     if (userchoice === choiceofcomp) {
         draw()
     } else {
@@ -35,7 +33,6 @@ const compchoice = () => {
 }
 
 const draw = () => {
-    console.log("msth is draw");
     result.innerText = "match draw"
     result.style.backgroundColor = 'green'
 }
@@ -46,21 +43,17 @@ const winner = (userchoice, choiceofcomp) => {
             (userchoice === "scissor" && choiceofcomp === "rock") ||
             (userchoice === "paper" && choiceofcomp === "scissor") 
        ) {
-           console.log("computer wins the game", choiceofcomp);
            result.style.backgroundColor = 'red'
            result.innerText = "computer wins the game"
-           console.log(computerscore++);
-           computerscore + 1
+           computerscore++
         } else if (
          (userchoice === "paper" && choiceofcomp === "rock") ||
          (userchoice === "rock" && choiceofcomp === "scissor") ||
          (userchoice === "scissor" && choiceofcomp === "paper") 
     ) {
-        console.log("user wins the game ", userchoice);
         result.style.backgroundColor = 'aqua'
         result.innerText = "user wins the game"
-        console.log(userscore++);
-        userscore + 1
+        userscore++
     }
     use.textContent = ` ${userscore}`;
     comp.textContent = ` ${computerscore}`;
