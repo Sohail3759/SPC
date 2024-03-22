@@ -43,7 +43,7 @@ h1 {
 }
 
 
-.element1 {
+.paper {
     background-image: url("./images/paper.png");
     background-size: cover;
     background-repeat: no-repeat;
@@ -57,7 +57,7 @@ h1 {
 
 }
 
-.element2 {
+.rock {
     background-image: url("./images/rock.png");
     background-size: cover;
     background-repeat: no-repeat;
@@ -70,7 +70,7 @@ h1 {
     margin-right: 10px;
 }
 
-.element3 {
+.scissor {
     background-image: url("./images/sciss.png");
     background-size: cover;
     border: #8CB9BD;
@@ -88,13 +88,15 @@ h1 {
 
 .result{
     width: 30rem;
-    height: 3rem;
-    background-color: #fff;
+    height: 4.rem;
+    background-color: #FEFBF6;
     margin-left: 26rem;
     margin-top: 1rem;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'T8imes New Roman', Times, serif;
     font-size: 2rem;
     font-weight: 700;
+    text-align: center;
+    border-radius: 20px;
     
 }
 
@@ -134,16 +136,8 @@ h1 {
     margin-bottom: 5px;
 }
 
-.element1:hover{
-    border: 5px solid black;
+.paper:hover,.rock:hover,.scissor:hover{
+    border: 5px solid rgb(250, 0, 0);
     border-radius: 50%;
-}
-
-.element2:hover{
-    border: 5px solid black;
-    border-radius: 50%;
-}
-.element3:hover{
-    border: 5px solid black;
-    border-radius: 50%;
+    cursor: pointer;
 }
