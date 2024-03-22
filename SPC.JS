@@ -1,7 +1,12 @@
 const choices = document.querySelectorAll('#choice')
-let user = document.getElementById('user')
 let computers = document.getElementById('computer')
 let result = document.querySelector('.result')
+let use = document.querySelector('.user')
+let comp = document.querySelector('.computer')
+
+let userscore = 0;
+let computerscore = 0;
+
 
 choices.forEach((choice) => {
     choice.addEventListener('click', () => {
@@ -12,7 +17,6 @@ choices.forEach((choice) => {
 })
 
 const playgame = (userchoice) => {
-    console.log("userchoice =", userchoice)
     // generating compchoice
     const choiceofcomp = compchoice()
     console.log("compchoice =", choiceofcomp)
@@ -37,29 +41,27 @@ const draw = () => {
 }
 
 const winner = (userchoice, choiceofcomp) => {
-    if (userchoice === "rock" && choiceofcomp === "paper") {
-        console.log("computer wins the game", choiceofcomp);
-        result.style.backgroundColor = 'red'
-        result.innerText ="computer wins the game"
-    } else if (userchoice === "paper" && choiceofcomp === "rock") {
+    if (
+            (userchoice === "rock" && choiceofcomp === "paper") ||
+            (userchoice === "scissor" && choiceofcomp === "rock") ||
+            (userchoice === "paper" && choiceofcomp === "scissor") 
+       ) {
+           console.log("computer wins the game", choiceofcomp);
+           result.style.backgroundColor = 'red'
+           result.innerText = "computer wins the game"
+           console.log(computerscore++);
+           computerscore + 1
+        } else if (
+         (userchoice === "paper" && choiceofcomp === "rock") ||
+         (userchoice === "rock" && choiceofcomp === "scissor") ||
+         (userchoice === "scissor" && choiceofcomp === "paper") 
+    ) {
         console.log("user wins the game ", userchoice);
         result.style.backgroundColor = 'aqua'
-        result.innerText ="user wins the game"
-    } else if (userchoice === "rock" && choiceofcomp === "scissor") {
-        console.log("user wins the game", userchoice);
-        result.innerText ="user wins the game"
-        result.style.backgroundColor = 'aqua'
-    } else if (userchoice === "scissor" && choiceofcomp === "rock") {
-        console.log("computer wins the game", choiceofcomp);
-        result.style.backgroundColor = 'red'
-        result.innerText ="computer wins the game"
-    } else if (userchoice === "scissor" && choiceofcomp === "paper") {
-        console.log("user wins the game", userchoice);
-        result.innerText ="user wins the game"
-        result.style.backgroundColor = 'aqua'
-    } else if (userchoice === "paper" && choiceofcomp === "scissor") {
-        console.log("computer wins the game ", choiceofcomp);
-        result.innerText ="computer wins the game"
-        result.style.backgroundColor = 'red'
+        result.innerText = "user wins the game"
+        console.log(userscore++);
+        userscore + 1
     }
+    use.textContent = ` ${userscore}`;
+    comp.textContent = ` ${computerscore}`;
 }
