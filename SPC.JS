@@ -45,7 +45,7 @@ const winner = (userchoice, choiceofcomp) => {
        ) {
            result.style.backgroundColor = 'red'
            result.innerText = "computer wins the game"
-           computerscore++
+           computerscore +=10
         } else if (
          (userchoice === "paper" && choiceofcomp === "rock") ||
          (userchoice === "rock" && choiceofcomp === "scissor") ||
@@ -53,7 +53,7 @@ const winner = (userchoice, choiceofcomp) => {
     ) {
         result.style.backgroundColor = 'aqua'
         result.innerText = "user wins the game"
-        userscore++
+        userscore+=10
     }
     use.textContent = ` ${userscore}`;
     comp.textContent = ` ${computerscore}`;
